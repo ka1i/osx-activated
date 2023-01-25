@@ -21,6 +21,7 @@ func UserInterface() {
 
 	app := cocoa.NSApp_WithDidLaunch(func(n objc.Object) {
 		win := views.ActivateWindow()
+		views.PreviewWindow()
 
 		// Status Bar
 		statusBar := cocoa.NSStatusBar_System().StatusItemWithLength(cocoa.NSVariableStatusItemLength)

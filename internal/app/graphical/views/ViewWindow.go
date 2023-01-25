@@ -11,12 +11,14 @@ import (
 )
 
 func ActivateWindow() *cocoa.NSWindow {
-	watermark := "Activate MacOS\nGo to Settings to activate MacOS."
+	watermark := "Activate macOS\nGo to Settings to activate macOS."
 	var fontSize float64 = 12
 
 	viewW, viewH := component.ViewSize(watermark, "Monaco", fontSize)
 
-	windowSize := core.Rect(15, 15, viewW, viewH)
+	screen := cocoa.NSScreen_Main().Frame().Size
+
+	windowSize := core.Rect(screen.Width-15-viewW, 15, viewW, viewH)
 
 	log.Printf("Create WaterMark :%v\n", windowSize)
 
@@ -47,12 +49,12 @@ func ActivateWindow() *cocoa.NSWindow {
 }
 
 func PreviewWindow() *cocoa.NSWindow {
-	watermark := fmt.Sprintf("          Matrix Pro Inside Preview\nMardan(ka1i) Build Version:%s", version.Version.ToString())
-	var fontSize float64 = 12
+	watermark := fmt.Sprintf("Build Version:%s", version.Version.ToString())
+	var fontSize float64 = 10
 
 	viewW, viewH := component.ViewSize(watermark, "Monaco", fontSize)
 
-	windowSize := core.Rect(15, 15, viewW, viewH)
+	windowSize := core.Rect(3, 3, viewW, viewH)
 
 	log.Printf("Create WaterMark :%v\n", windowSize)
 
