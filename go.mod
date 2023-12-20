@@ -1,5 +1,5 @@
 module github.com/kai1/osx-activated
 
-go 1.19
+go 1.21
 
-require github.com/progrium/macdriver v0.2.0
+require github.com/progrium/macdriver v0.5.0-preview.0.20231114193140-e468a641af06
